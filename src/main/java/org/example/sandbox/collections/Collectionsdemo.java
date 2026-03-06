@@ -9,6 +9,7 @@ public class Collectionsdemo {
 
         // Sets
         Set<String> set = new LinkedHashSet<>();
+        Set<String> set5 = new LinkedHashSet<>();
         Set<String> set2 = new HashSet<>();
         Set<String> set3 = new TreeSet<>();
 
