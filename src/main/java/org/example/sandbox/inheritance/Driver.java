@@ -1,31 +1,30 @@
 package org.example.sandbox.inheritance;
-import java.util.*;
 
-public class driver {
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void main(String[] args){
-        car car = new car();
-        truck truck = new truck();
-        System.out.println("number of vehicles: "+ Vehicle.getCounter());
+public class Driver {
 
-        car.setLoadCapacity(5);
+    public static void main(String[] args) {
 
-        truck.setLoadCapacity(500);
+        Vehicle car = new Car();
+        Vehicle truck = new Truck();
+        System.out.println("Number of vehicles: " + Vehicle.getCounter());
+
+        car.setLoadCapacity(4000);
+        truck.setLoadCapacity(8000);
 
         List<Vehicle> vehicles = new ArrayList<>();
         vehicles.add(car);
         vehicles.add(truck);
 
-        for (Vehicle vehicle: vehicles) {
-
-            System.out.println(vehicle.getClass().getSimpleName()+" load capacity: "
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle.getClass().getSimpleName() + " load capacity: "
                     + vehicle.getLoadCapacity());
             vehicle.load();
-
         }
 
-
-        car.drives();
-        truck.drives();
+        car.unload();
+        truck.unload();
     }
 }

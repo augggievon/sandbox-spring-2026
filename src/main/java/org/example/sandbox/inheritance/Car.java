@@ -1,24 +1,43 @@
 package org.example.sandbox.inheritance;
 
-public class car extends Vehicle{
+public class Car extends Vehicle {
 
-    public car(){
-            counter++;
-}
+    public Car() {
+        counter++;
+    }
 
     @Override
     public void load() {
-        System.out.println("loading ");
+        System.out.println("Loading car stuff.");
     }
 
     @Override
     public void transport() {
-
-        System.out.println("transporting car stuff");
+        System.out.println("Transporting car stuff.");
     }
 
     @Override
-    public void drives(){
-        System.out.println("drving again");
+    public void move() {
+        System.out.println("Moving car stuff.");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Stopping car stuff.");
+    }
+
+    @Override
+    public void turnLeft() {
+        System.out.println("Turning left car stuff.");
+    }
+
+    @Override
+    public void turnRight() {
+        System.out.println("Turning right car stuff.");
+    }
+
+    @Override
+    public void unload() {
+        System.out.println("Unloading car stuff.");
     }
 }

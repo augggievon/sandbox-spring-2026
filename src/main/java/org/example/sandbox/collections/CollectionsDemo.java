@@ -4,7 +4,6 @@ import java.util.*;
 
 public class CollectionsDemo {
 
-    public int man =0;
     public static void main(String[] args) {
 
         // Sets

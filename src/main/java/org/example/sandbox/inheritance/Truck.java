@@ -1,18 +1,38 @@
 package org.example.sandbox.inheritance;
 
-public class truck extends Vehicle {
+public class Truck extends Vehicle {
 
-    public truck(){
+    public Truck() {
         counter++;
     }
 
     @Override
-    public void load(){
-        System.out.println("loading");
+    public void load() {
+        System.out.println("Loading truck stuff.");
     }
 
     @Override
     public void transport() {
-        System.out.println("transporting truck stuff");
+
+    }
+
+    @Override
+    public void move() {
+
+    }
+
+    @Override
+    public void stop() {
+
+    }
+
+    @Override
+    public void turnLeft() {
+
+    }
+
+    @Override
+    public void turnRight() {
+
     }
 }
