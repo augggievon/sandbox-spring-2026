@@ -1,7 +1,6 @@
 package org.example.sandbox.cards;
 
 public interface Deck {
-
     void shuffle();
     void cut(int index);
     Card deal();
