@@ -17,6 +17,8 @@ public class Driver {
         System.out.println(box2);
 
         Crate<Box<?>> crate = new Crate<>();
+        Box<?> box3 = new Box<>(2.14);
+
         crate.addBox(box);
         crate.addBox(box2);
         //crate.addBox("Hello World");
