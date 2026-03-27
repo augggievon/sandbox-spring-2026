@@ -115,6 +115,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         while (current.next != null) {
             Node next = current.next;
             current.next = null;
+
             current = next;
 
         }
