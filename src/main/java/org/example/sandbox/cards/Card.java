@@ -1,3 +1,4 @@
+
 package org.example.sandbox.cards;
 
 import java.util.Objects;
@@ -8,8 +9,12 @@ public class Card implements Comparable<Card> {
     private final FaceValue faceValue;
 
     public Card(Suit suit, FaceValue faceValue) {
+        this.suit = suit;
         this.faceValue = faceValue;
+    }
 
+    public Suit getSuit() {
+        return suit;
     }
 
     public FaceValue getFaceValue() {

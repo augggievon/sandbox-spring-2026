@@ -1,0 +1,37 @@
+package org.example.sandbox.recursion.fibonacci;
+
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+
+public class FibNumbers {
+
+    private Map<Integer, BigInteger> map = new HashMap<>();
+
+    public BigInteger fib(int n) {
+
+        // base cases
+        if (n == 0){
+            return BigInteger.ZERO;
+        }
+        if (n == 1){
+            return BigInteger.ONE;
+        }
+
+        return memo(n - 1).add(memo(n - 2));
+
+    }
+
+    private BigInteger memo(int n ){
+
+        BigInteger value = map.get(n);
+
+        if (value != null) {
+            return value;
+        }
+
+        value = fib(n);// calculate value
+        map.put(n, value);// store value
+        return value;
+    }
+}
