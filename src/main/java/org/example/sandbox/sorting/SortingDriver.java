@@ -11,19 +11,33 @@ public class SortingDriver {
         StopWatch stopWatch = new StopWatch("Sorting Algorithms Performance");
 
         // Generate array of random Integers
-        Integer[] arr = IntStream.generate(() -> (int) (Math.random() * 5000))
-                .boxed()
-                .limit(2000)
-                .toArray(Integer[]::new);
+        //Integer[] arr = IntStream.generate(() -> (int) (Math.random() * 1000))
+                //.distinct()
+                //.boxed()
+                //.limit(50000)
+               // .toArray(Integer[]::new);
+
+        // Generate array of random Strings
+        String[] arr = IntStream.range(0, 50000)
+                .mapToObj(i -> {
+                    int length = 5 + (int) (Math.random() * 10);
+                    StringBuilder sb = new StringBuilder();
+                    for (int j = 0; j < length; j++) {
+                        char c = (char) ('a' + (int) (Math.random() * 26));
+                        sb.append(c);
+                    }
+                    return sb.toString();
+                })
+                .toArray(String[]::new);
 
         // List first 10 unsorted elements...
         printFirstTenOfArray(arr);
 
-        Integer[] copy1 = copyArray(arr);
-        Integer[] copy2 = copyArray(arr);
-        Integer[] copy3 = copyArray(arr);
-        Integer[] copy4 = copyArray(arr);
-        Integer[] copy5 = copyArray(arr);
+        Comparable[] copy1 = copyArray(arr);
+        Comparable[] copy2 = copyArray(arr);
+        Comparable[] copy3 = copyArray(arr);
+        Comparable[] copy4 = copyArray(arr);
+        Comparable[] copy5 = copyArray(arr);
 
         System.out.println("\nSelection Sort...");
         stopWatch.start("Selection Sort");
@@ -48,14 +62,14 @@ public class SortingDriver {
 
         System.out.println("\nQuick Sort...");
         stopWatch.start("Quick Sort");
-        //SortingUtility.quickSort(copy4);
+        SortingUtility.quickSort(copy4);
         stopWatch.stop();
         printFirstTenOfArray(copy4);
         System.out.println("Time: " + stopWatch.getLastTaskTimeMillis() + "ms");
 
         System.out.println("\nMerge Sort...");
         stopWatch.start("Merge Sort");
-        //SortingUtility.mergeSort(copy5);
+        SortingUtility.mergeSort(copy5);
         stopWatch.stop();
         printFirstTenOfArray(copy5);
         System.out.println("Time: " + stopWatch.getLastTaskTimeMillis() + "ms");
@@ -84,9 +98,9 @@ public class SortingDriver {
         }
     }
 
-    private static <T> T[] copyArray(T[] obj) {
+    private static <T extends Comparable<T>> T[] copyArray(T[] arr) {
 
-        T[] copy = (T[]) Arrays.copyOf(obj, obj.length);
+        T[] copy = (T[]) Arrays.copyOf(arr, arr.length);
 
         return copy;
     }
